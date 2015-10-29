@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+<div >
+
+    <div>
+        <div style="float:left">
+            <div><h4>Kostnaður verkefnis</h4></div>
+        </div>
+
+    </div>
+    <div class="nav" style=" vertical-align:baseline" align="right">
+        <a style="font-size:2em" class="glyphicon glyphicon-pencil" href="#/editProject_cost/{{pcost.pcid}}"></a>
+        <a style="font-size:2em" class="glyphicon glyphicon-remove" ng-click="delclick(pcost.pcid)"></a>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Kostnaður</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{pcost.cost}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Lýsing</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ pcost.costdescription }}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Kostnaðardagsetning</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ pcost.costdate| date: " dd.MM.yyyy"}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Verkefni</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ pcost.projectTitle }}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Hver skráir</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ pcost.employeeName }}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Hvenær skráð</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ pcost.costtimestamp| date: " dd.MM.yyyy 'kl.' HH:mm"}}</label>
+        </div>
+    </div>
+    <br /><br />
+</div>

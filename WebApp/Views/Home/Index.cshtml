@@ -1,0 +1,54 @@
+﻿<div class="container-narrow">
+    <div  class="ng-scope">
+        <div ng-controller="headerController as header" class="ng-scope">
+            
+           
+                        <nav class="navbar navbar-inverse navbar-fixed-top">
+
+
+                                <div>
+                                    <ul class="nav navbar-nav" ng-show="user.isAuthenticated">
+
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" ng-show="showAdmin" ng-click="allProjects_click()" data-toggle="dropdown" id="btnAllProjects">Stjórnandi<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li style="font-size:1.2em"><a href="#/allprojects">Verkefni</a></li>
+                                                <li><a href="#/project_messages">&nbsp; -&nbsp;&nbsp;&nbsp;   Skilaboð</a></li>
+                                                <li><a href="#/project_hours">&nbsp; - &nbsp;&nbsp;&nbsp;  Tímar</a></li>
+                                                <li><a href="#/project_costs">&nbsp; - &nbsp;&nbsp;&nbsp;  Kostnaður</a></li>
+                                                <li style="font-size:1.2em"><a href="#/employees">Starfsmenn</a></li>
+                                            </ul>
+                                        </li>
+                                       
+                                        
+                                    </ul>
+                                    <ul class="nav navbar-nav" ng-show="user.isAuthenticated">
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" ng-click="myProjects_click()" data-toggle="dropdown" id="btnMyProjects">Mín verkefni<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a ng-show="user.isAuthenticated" href="#/project" >Verkefnalisti</a></li>
+                                                <li><a ng-show="user.isAuthenticated"  href="#/project/create" ng-click="createProject_click()">Nýtt verkefni</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a ng-hide="user.isAuthenticated" href="#/user/login">Log in</a></li>
+                                            <li><a ng-show="user.isAuthenticated" href="#/user/login">{{user.username}}</a></li>
+                                            <li><a ng-show="user.isAuthenticated" href="#/user/login">{{thisEmp.name}}</a></li>
+                                            <li><a ng-show="user.isAuthenticated" href="#/user/login">{{thisEmp.userrole}}</a></li>
+                                        </ul>
+                            </div>
+
+                        </nav>
+                
+        </div>
+    </div>
+
+
+    <div ng-view="" style="padding-top:70px" >
+        <!-- Partial HTML files to be added here -->
+    </div>
+
+
+</div>

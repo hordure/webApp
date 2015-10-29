@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+<div>
+
+    <div>
+        <div><h4>Tímaskráning - breyta</h4></div>
+    </div>
+
+
+    <hr>
+    <div>
+        <label class="col-md-3 control-label">Tímar</label>
+        <div class="col-md-9">
+
+            <input type="number"  rows="2" ng-model="phour.workhour" style="margin-bottom:5px;width:35px "/>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Lýsing</label>
+        <div class="col-md-9">
+            <textarea ng-model="phour.hourdescription" style="margin-bottom:5px; width:100%" rows="6">&nbsp;{{ phour.hourdescription}}</textarea>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Dags. vinnu</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{phour.hourdate |date: "MMMM.dd.yyyy "}}</label>
+            <input type="date" ng-model="phour.hourdate" hh:mm"" type="datetime" />
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Verkefni</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{phour.project}}</label>
+
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Starfsmaður</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{phour.employee}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-3 control-label">Hvenær skráð</label>
+        <div class="col-md-9">
+            <label style="font-size:larger">&nbsp;{{ phour.hourtimestamp| date: " dd.MM.yyyy 'kl.' HH:mm"}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div class="col-md-3"></div>
+
+    <div class="col-md-9">
+        <input type="submit" class="btn-success" value="Breyta" ng-click="edit()" />
+        <input type="submit" class="btn-default" value="Hætta við" ng-click="continue()" />
+    </div>
+
+
+</div>

@@ -1,0 +1,286 @@
+﻿@{
+    Layout = null;
+}
+
+<div >
+    <div ng-show="projectdetails" >
+        <div>
+            <div style="float:left">
+                <div ><h4>Verkefni - nánari upplýsingar</h4></div>
+                <div class="dropdown ">
+                    <a class=" dropdown-toggle" style="font-size:1.5em"  data-toggle="dropdown">
+                        Bæta við verkefni
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="addMessageClick()">Skilaboð</a></li>
+                        <li><a ng-click="addHoursClick()">Tímar</a></li>
+                        <li><a ng-click="addCostClick()">Kostnað</a></li>
+                    </ul>
+                </div> 
+            </div>
+            
+        </div>
+        <div  class="nav" style=" vertical-align:baseline" align="right">
+            <div ng-show="isOwner">
+                <a style="font-size:2em" class="glyphicon glyphicon-pencil" href="#/projectsEdit/{{project.pid}}"></a>
+                <a style="font-size:2em" class="glyphicon glyphicon-remove" ng-click="delclick(project.pid)"></a>
+            </div>
+        </div>
+
+        <br /><br />
+        <div>
+            <label class="col-md-2 control-label">Nr.</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{project.pid}}</label>
+            </div>
+        </div>
+        <br/><br />
+        <div>
+            <label class="col-md-2 control-label">Titill</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{project.projectname}}</label>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <label class="col-md-2 control-label">Lýsing</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{project.pdescription}}</label>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <label class="col-md-2 control-label">Stofn dags.</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{project.pdate| date:"dd.MM.yyyy 'kl.' h:mm"}}</label>
+            </div>
+        </div>
+        <br /><br />
+
+        <div>
+            <label class="col-md-2 control-label">Lokið fyrir</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{project.pdeadline| date:"dd.MM.yyyy"}}</label>
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <label class="col-md-2 control-label">Staða</label>
+            <div  class="col-md-10">
+                
+
+                    <label id="status" style="font-size:larger">{{project.isfinished}}</label>
+              
+            </div>
+        </div>
+        <br /><br />
+        <label class="col-md-3 control-label">Starfsmenn &nbsp; &nbsp;</label>
+
+        <div ng-show="isOwner">
+            <a class="glyphicon glyphicon-plus" ng-hide="hidePlusPE" ng-click="addProjectEmp()"></a>&nbsp;&nbsp;<a class="glyphicon glyphicon-minus" ng-hide="remEmp" ng-click="remProjectEmp()"></a>
+            </div>
+                <div class="col-md-9" >
+                    <br />
+                <ul style="list-style-type:none">
+                    <li ng-repeat="pe in projectEmps">
+                        <b>{{pe.name}}</b>  -  {{pe.profession}} &nbsp;&nbsp;   <a class="glyphicon glyphicon-minus" ng-hide="hideMinusPE" ng-show="showMinusPE" ng-click="removeProjectEmp($index, pe.peid)"></a>
+                    </li>
+                </ul>
+
+                <div ng-show="showAddProjectEmp">
+                    <h6>Bæta við starfsmanni</h6>
+                    <ul style="list-style-type:none">
+
+                        <li ng-repeat="ae in addEmployee">
+                            <a ng-click="btnAddProjectEmps(ae.eid, project.pid, $index)"> <b>{{ae.name}}</b>  -  {{ae.profession}} </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        <br /><br />
+        <div ng-if="messages" >
+            <button ng-hide="showPMessages" id="btnShowPM" ng-click="btnShowMessages()" class="btn-link"><h4>Sýna skilaboð verkefnis</h4></button>
+            <button ng-show="showPMessages" id="btnHidePM" ng-click="btnHideMessages()" class="btn-link"><h4>Fela skilaboð verkefnis</h4></button>
+            <table class="table " ng-show="showPMessages">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <a href="" ng-click="predicate = 'projectmessage'; reverse=!reverse">Skilaboð</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'messagetimestamp'; reverse=!reverse">Skráð</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'employee'; reverse=!reverse">Skráð af</a>
+                        </th>
+
+                        <th ng-show="isOwner">Nánar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pm in project.project_messages| filter: search | orderBy:predicate:reverse">
+                        <td>{{pm.projectmessage}}</td>
+                        <td>{{pm.messagetimestamp | date:"dd.MM.yyyy 'kl.' h:mm"}}</td>
+                        <td>{{pm.employee}}</td>
+                        <td>
+                            <a ng-show="isOwner" class="glyphicon glyphicon-align-left" href="#/project_messagesDetails/{{pm.pmid}}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-if="hours">
+            <button ng-hide="showPHours" id="btnShowPH" ng-click="btnShowHours()" class="btn-link"><h4>Sýna tímaskráningar verkefnis</h4></button>
+            <button ng-show="showPHours" id="btnHidePH" ng-click="btnHideHours()" class="btn-link"><h4>Fela tímaskráningar verkefnis</h4></button>
+            <table class="table " ng-show="showPHours">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <a href="" ng-click="predicate = 'workhour'; reverse=!reverse">Fj. tíma</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'hourdescription'; reverse=!reverse">Lýsing</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'hourdate'; reverse=!reverse">Dags.</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'employee'; reverse=!reverse">Skráð af</a>
+                        </th>
+
+                        <th ng-show="isOwner">Nánar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ph in project.project_hours| filter: search | orderBy:predicate:reverse">
+                        <td>{{ph.workhour}}</td>
+                        <td>{{ph.hourdescription}}</td>
+                        <td>{{ph.hourdate |  date:"dd.MM.yyyy"}}</td>
+                        <td>{{ph.employee}}</td>
+                        <td>
+                            <a ng-show="isOwner" class="glyphicon glyphicon-align-left" href="#/project_hourDetails/{{ph.phid}}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-if="costs">
+            <button ng-hide="showPCosts" id="btnShowPC" ng-click="btnShowCosts()" class="btn-link"><h4>Sýna kostnað verkefnis</h4></button>
+            <button ng-show="showPCosts" id="btnHidePC" ng-click="btnHideCosts()" class="btn-link"><h4>Fela kostnað verkefnis</h4></button>
+            <table class="table " ng-show="showPCosts">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <a href="" ng-click="predicate = 'cost'; reverse=!reverse">Upphæð</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'costdescription'; reverse=!reverse">Lýsing</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'costdate'; reverse=!reverse">Dags.</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'employee'; reverse=!reverse">Skráð af</a>
+                        </th>
+
+                        <th ng-show="isOwner">Nánar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pc in project.project_costs| filter: search | orderBy:predicate:reverse">
+                        <td class="text-right">{{pc.cost | currency:"Kr":0}}</td>
+                        <td>{{pc.costdescription}}</td>
+                        <td>{{pc.costdate|  date:"dd.MM.yyyy"}}</td>
+                        <td>{{pc.employee}}</td>
+                        <td>
+                            <a ng-show="isOwner" class="glyphicon glyphicon-align-left" href="#/project_costDetails/{{pc.pcid}}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div ng-show="addMessage">
+
+        <h4>Verkefni: {{project.projectname}}</h4>
+        <h2>Bæta við skilaboðum</h2>
+
+
+        <form class="form-horizontal ">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Skilaboð</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="newprojectMessage.projectmessage" placeholder="Skilaboð" class="form-control" required />
+                </div>
+            </div>
+            <input type="submit" ng-click="createMessage()" class="btn-success" value="Bæta við" />
+            <input type="submit" ng-click="cancel()" class="btn-default" value="Hætta við" />
+        </form>
+    </div>
+    <div ng-show="addCost">
+
+        <h4>Verkefni: {{project.projectname}}</h4>
+        <h2>Bæta við kostnaði</h2>
+
+
+        <form class="form-horizontal ">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Upphæð</label>
+                <div class="col-md-10">
+                    <input type="number" ng-model="newprojectCost.cost" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Lýsing</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="newprojectCost.costdescription" placeholder="Lýsing" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Hvenær</label>
+                <div class="col-md-10">
+                    <input type="date" ng-model="newprojectCost.costdate" class="form-control" required />
+                </div>
+            </div>
+            <input type="submit" ng-click="createCost()" class="btn-success" value="Bæta við" />
+            <input type="submit" ng-click="cancel()" class="btn-default" value="Hætta við" />
+        </form>
+    </div>
+    <div ng-show="addHours">
+
+        <h4>Verkefni: {{project.projectname}}</h4>
+        <h2>Bæta við tímum</h2>
+
+
+        <form class="form-horizontal ">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Fjöldi tíma   </label>
+                <div class="col-md-10">
+                    <input type="number" step="any" ng-model="newprojectHours.workhour" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Lýsing</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="newprojectHours.hourdescription" placeholder="Lýsing" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Hvenær</label>
+                <div class="col-md-10">
+                    <input type="date" ng-model="newprojectHours.hourdate" class="form-control" required />
+                </div>
+            </div>
+            <input type="submit" ng-click="createHours()" class="btn-success" value="Bæta við" />
+            <input type="submit" ng-click="cancel()" class="btn-default" value="Hætta við" />
+        </form>
+    </div>
+</div>

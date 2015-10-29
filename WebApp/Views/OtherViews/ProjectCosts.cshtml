@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+<div >
+
+    <table class="table ">
+        <thead>
+            <tr>
+
+                <th>
+                    <a href="" ng-click="predicate = 'cost'; reverse=!reverse">Upphæð</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'costdescription'; reverse=!reverse">Lýsing</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'costdate'; reverse=!reverse">Dags kostnaðar</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'costtimestamp'; reverse=!reverse">Hvenær skráð</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'employee_eid'; reverse=!reverse">Starfsmaður</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'project_pid'; reverse=!reverse">Verkefni</a>
+                </th>
+                <th>Nánar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pc in project_costs| filter: search | orderBy:predicate:reverse">
+                <td>{{pc.cost | currency:'kr':0}}</td>
+                <td>{{pc.costdescription }}</td>
+                <td>{{pc.costdate| date:"dd.MM.yyyy"}}</td>
+                <td>{{pc.costtimestamp | date:"dd.MM.yyyy 'kl.' h:mm"}}</td>
+                <td>{{pc.employeeName}}</td>
+                <td>{{pc.projectTitle}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-align-left" href="#/project_costDetails/{{pc.pcid}}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <label>Samtals&nbsp;&nbsp;</label>
+    <label>{{sumOfCosts[0].TotalCosts | currency:'kr':0}}</label>
+</div>

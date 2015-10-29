@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\ProjectsV12;AttachDbFilename=|DataDirectory|\aspnet-WebApp-20150924103942.mdf;Initial Catalog=aspnet-WebApp-20150924103942;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ProjectEntities-Web.config Connection String" description="ProjectEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.ProjectEntities.csdl|res://*/Models.ProjectEntities.ssdl|res://*/Models.ProjectEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(localdb)\ProjectsV12;attachdbfilename=|DataDirectory|\aspnet-WebApp-20150924103942.mdf;initial catalog=aspnet-WebApp-20150924103942;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProjectEntities']/@connectionString" />
+  </parameter>
+</parameters>

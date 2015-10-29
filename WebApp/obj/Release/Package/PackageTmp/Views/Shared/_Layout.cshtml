@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="fonts/font-awesome.css" rel="stylesheet" />
+    <link href="Content/Custom.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+
+</head>
+<body ng-app="projectApp" style="padding-top:50px">
+
+
+    
+        @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/angular.js"></script>
+   
+    <script src="~/Scripts/i18n/angular-locale_is.js"></script>
+    <script src="~/Scripts/i18n/angular-locale_is-is.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>
+    <script src="~/Scripts/angular-cookies.js"></script>
+    <script src="~/Scripts/angular-bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+
+    
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+   
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.backstretch.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    <script src="~/Scripts/app/services/authenticationService.js"></script>
+    <script src="~/Scripts/app/services/employee.js"></script>
+    <script src="~/Scripts/app/services/project.js"></script>
+
+    <script src="~/Scripts/app/controllers/authenticationController.js"></script>
+
+    <script src="~/Scripts/app/controllers/projectController.js"></script>
+    <script src="~/Scripts/app/controllers/allProjectsController.js"></script>
+    <script src="~/Scripts/app/controllers/employeeController.js"></script>
+    <script src="~/Scripts/app/controllers/project_MessagesControllers.js"></script>
+    <script src="~/Scripts/app/controllers/project_CostsController.js"></script>
+    <script src="~/Scripts/app/controllers/headerController.js"></script>
+    <script src="~/Scripts/app/controllers/project_hoursController.js"></script>
+
+</body>
+</html>

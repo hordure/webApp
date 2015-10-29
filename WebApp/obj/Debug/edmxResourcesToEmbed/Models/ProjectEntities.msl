@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ProjectEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="Model.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="eid" ColumnName="eid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="homeaddress" ColumnName="homeaddress" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="imgname" ColumnName="imgname" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="userrole_urid" ColumnName="userrole_urid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="kt" ColumnName="kt" />
+          <ScalarProperty Name="employeetimestamp" ColumnName="employeetimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="Model.project">
+        <MappingFragment StoreEntitySet="project">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="projectname" ColumnName="projectname" />
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+          <ScalarProperty Name="pdescription" ColumnName="pdescription" />
+          <ScalarProperty Name="pdate" ColumnName="pdate" />
+          <ScalarProperty Name="pdeadline" ColumnName="pdeadline" />
+          <ScalarProperty Name="projectisfinished" ColumnName="projectisfinished" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="project_costs">
+      <EntityTypeMapping TypeName="Model.project_costs">
+        <MappingFragment StoreEntitySet="project_costs">
+          <ScalarProperty Name="project_pid" ColumnName="project_pid" />
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+          <ScalarProperty Name="costdescription" ColumnName="costdescription" />
+          <ScalarProperty Name="costdate" ColumnName="costdate" />
+          <ScalarProperty Name="costtimestamp" ColumnName="costtimestamp" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="pcid" ColumnName="pcid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="project_employees">
+      <EntityTypeMapping TypeName="Model.project_employees">
+        <MappingFragment StoreEntitySet="project_employees">
+          <ScalarProperty Name="peid" ColumnName="peid" />
+          <ScalarProperty Name="project_pid" ColumnName="project_pid" />
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="project_hours">
+      <EntityTypeMapping TypeName="Model.project_hours">
+        <MappingFragment StoreEntitySet="project_hours">
+          <ScalarProperty Name="project_pid" ColumnName="project_pid" />
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+          <ScalarProperty Name="hourdescription" ColumnName="hourdescription" />
+          <ScalarProperty Name="hourdate" ColumnName="hourdate" />
+          <ScalarProperty Name="hourtimestamp" ColumnName="hourtimestamp" />
+          <ScalarProperty Name="workhour" ColumnName="workhour" />
+          <ScalarProperty Name="phid" ColumnName="phid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="project_messages">
+      <EntityTypeMapping TypeName="Model.project_messages">
+        <MappingFragment StoreEntitySet="project_messages">
+          <ScalarProperty Name="project_pid" ColumnName="project_pid" />
+          <ScalarProperty Name="employee_eid" ColumnName="employee_eid" />
+          <ScalarProperty Name="projectmessage" ColumnName="projectmessage" />
+          <ScalarProperty Name="messagetimestamp" ColumnName="messagetimestamp" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userroles">
+      <EntityTypeMapping TypeName="Model.userrole">
+        <MappingFragment StoreEntitySet="userroles">
+          <ScalarProperty Name="urid" ColumnName="urid" />
+          <ScalarProperty Name="userrole1" ColumnName="userrole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zipcodes">
+      <EntityTypeMapping TypeName="Model.zipcode">
+        <MappingFragment StoreEntitySet="zipcodes">
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="place" ColumnName="place" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

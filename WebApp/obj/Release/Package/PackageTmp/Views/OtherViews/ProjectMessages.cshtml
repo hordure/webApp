@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+<div >
+  
+    <table class="table ">
+        <thead>
+            <tr>
+
+                <th>
+                    <a href="" ng-click="predicate = 'projectmessage'; reverse=!reverse">Skilaboð</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'messagetimestamp'; reverse=!reverse">Skráð</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'employee'; reverse=!reverse">Skráð af</a>
+                </th>
+
+                <th>Nánar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pm in project_messages| filter: search | orderBy:predicate:reverse">
+                <td>{{pm.projectmessage}}</td>
+                <td>{{pm.messagetimestamp | date:"dd.MM.yyyy 'kl.' h:mm"}}</td>
+                <td>{{pm.employeename}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-align-left" href="#/project_messagesDetails/{{pm.pmid}}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

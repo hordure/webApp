@@ -1,0 +1,13 @@
+﻿insert into aspnetusers (id, email, emailconfirmed,passwordhash,securitystamp, phonenumber,phonenumberconfirmed, twofactorenabled,  lockoutenddateutc, lockoutenabled, accessfailedcount, username, employee_eid) values									
+
+('232fc1dc-d986-481a-8204-c1286a1e84c0', 'j@j.is', 0, 'AI593W86XEQPSsoFY6UjNXpxs2UesIJQO1CD3Xi+7z7qT97R89mcqqh0uCp9wbRjfw==',	'16601db1-b71d-4ddd-a84f-da58ecc036ea',	NULL, 0, 0, NULL, 0, 0, 'j@j.is',	2),
+('24c8be94-ab3e-47c2-b2a6-d632604b1410', 'g@g.is', 0, 'ANdHWGKjjOK9JuoucqkuJgmpwLax5LZofbgVXwDywMJ+162i72gX0w3hCc7LdoX5Jw==', 'eafb29a9-322d-46a6-99d4-f4da15de6567',   NULL, 0, 0, NULL, 0, 0, 'g@g.is',	6)
+
+insert into aspnetroles (id, Name) values
+(1, 'User'),
+(2, 'Poweruser'),
+(3, 'Admin')
+
+insert into aspnetuserroles (UserId, RoleId) values
+('24c8be94-ab3e-47c2-b2a6-d632604b1410', 1),
+('232fc1dc-d986-481a-8204-c1286a1e84c0', 3)

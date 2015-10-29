@@ -1,0 +1,99 @@
+﻿@{
+    Layout = null;
+}
+
+<div >
+    
+    <div>
+        <div style="float:left">
+            <div><h4>Starfsmaður</h4></div>
+        </div>
+
+    </div>
+    <div class="nav" style=" vertical-align:baseline" align="right">
+
+        <a style="font-size:2em" class="glyphicon glyphicon-pencil" href="#/employeesEdit/{{employee.eid}}"></a>
+        <a style="font-size:2em" class="glyphicon glyphicon-remove" ng-click="delclick(employee.eid)"></a>
+    </div>
+
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Nafn</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.name}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Email</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.email}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Heimilisfang</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.homeaddress}}</label>
+        </div>
+    </div>
+    <br /><br />
+
+    <div>
+        <label class="col-md-2 control-label">Póstnúmer</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.zip}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Símanúmer</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.phone}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Starfsheiti</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.profession}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Userrole_urid</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.userrole_urid}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Username</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.username}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Password</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.password}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Kt</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.kt}}&nbsp;</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Timestamp</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{employee.employeetimestamp}}</label>
+        </div>
+    </div>
+   
+    
+</div>

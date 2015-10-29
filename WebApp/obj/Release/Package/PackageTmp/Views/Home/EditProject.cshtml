@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+<div  >
+    
+        <div>
+            <div><h4>Verkefni - breyta</h4></div>
+        </div>
+
+
+        <hr>
+        <div>
+            <label class="col-md-2 control-label">Titill</label>
+            <div class="col-md-10">
+
+                <textarea rows="2" ng-model="eproject.projectname" style="margin-bottom:5px; width:100%">{{eproject.projectname}}</textarea>
+            </div>
+        </div>
+        <hr><hr>
+        <div>
+            <label class="col-md-2 control-label">Lýsing</label>
+            <div class="col-md-10">
+                <textarea ng-model="eproject.pdescription" style="margin-bottom:5px; width:100%" rows="6"></textarea>
+            </div>
+        </div>
+        <hr><hr>
+        <div>
+            <label class="col-md-2 control-label">Stofn dags.</label>
+            <div class="col-md-10">
+                <label style="font-size:larger">{{eproject.pdate| date:"dd.MM.yyyy 'kl.' h:mm"}}</label>
+            </div>
+        </div>
+        <br /><br />
+
+        <div style="margin-top:50px">
+            <label class="col-md-2 control-label">Lokið fyrir</label>
+            <div  class="col-md-10">
+                <label style="font-size:larger">{{eproject.pdeadline| date:"dd.MM.yyyy"}}</label>
+                <input type="date" ng-model="eproject.pdeadline" style="font-size:larger" />
+            </div>
+        </div>
+        <br /><br />
+        <div>
+            <label class="col-md-2 control-label">Staða</label>
+            <div class="col-md-10">
+                <input type="checkbox" ng-model="eproject.projectisfinished" style="font-size:larger" />
+            </div>
+        </div>
+
+        <input type="submit" class="glyphicon-save" ng-click="edit(eproject.pid)" />
+    
+   
+</div>

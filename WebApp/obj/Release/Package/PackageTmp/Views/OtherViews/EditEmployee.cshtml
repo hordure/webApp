@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+<div >
+
+    <div>
+        <div><h4>Starfsmaður - breyta</h4></div>
+    </div>
+
+
+    <hr>
+    <div>
+        <label class="col-md-2 control-label">Nafn</label>
+        <div class="col-md-10">
+
+            <textarea rows="2" ng-model="employee.name" style="margin-bottom:5px; width:100%">{{employee.name}}</textarea>
+        </div>
+    </div>
+    <hr><hr>
+    <div>
+        <label class="col-md-2 control-label">Email</label>
+        <div class="col-md-10">
+            <textarea ng-model="employee.email" style="margin-bottom:5px; width:100%" rows="6"></textarea>
+        </div>
+    </div>
+    <hr><hr>
+    <div>
+        <label class="col-md-2 control-label">Heimilisfang</label>
+        <div class="col-md-10">
+            <textarea style="margin-bottom:5px; width:100%">{{employee.homeaddress}}</textarea>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Símanúmer</label>
+        <div class="col-md-10">
+            <input ng-model="employee.phone" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">Starfsheiti</label>
+        <div class="col-md-10">
+            <input ng-model="employee.profession" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">userrole_urid</label>
+        <div class="col-md-10">
+            <input ng-model="employee.userrole_urid" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">Notandanafn</label>
+        <div class="col-md-10">
+            <input ng-model="employee.username" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">Lykilorð</label>
+        <div class="col-md-10">
+            <input ng-model="employee.password" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">Kt.</label>
+        <div class="col-md-10">
+            <input ng-model="employee.kt" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+    <div>
+        <label class="col-md-2 control-label">Timestamp</label>
+        <div class="col-md-10">
+            <input ng-model="employee.timestamp" style="margin-bottom:5px; width:100%" />
+        </div>
+    </div>
+
+    <input type="submit" class="glyphicon-save" ng-click="edit(employee.eid)" />
+
+
+</div>
+

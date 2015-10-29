@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+<h2>Nýtt verkefni</h2>
+<form class="form-horizontal" ng-submit="create()">
+    <div class="form-group">
+        <label for="product-name" class="col-md-2 control-label">Titill</label>
+        <div class="col-md-10">
+            <input type="text" id="product-name" ng-model="newproject.projectname" placeholder="Name" class="form-control" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="product-description" class="col-md-2 control-label">Lýsing</label>
+        <div class="col-md-10">
+            <textarea id="product-description" rows="6" ng-model="newproject.pdescription" placeholder="Description" class="form-control" required></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="product-number" class="col-md-2 control-label">Lok fyrir dags.</label>
+        <div class="col-md-10">
+            <input type="date" id="product-number" ng-model="newproject.pdeadline" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Stofna</button>
+        </div>
+    </div>
+</form>

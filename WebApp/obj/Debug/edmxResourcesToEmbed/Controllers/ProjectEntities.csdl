@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="eid" />
+    </Key>
+    <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="homeaddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="zip" Type="Int32" />
+    <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="imgname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="userrole_urid" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="kt" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="employeetimestamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="userrole" Relationship="Self.FK__employee__userro__29572725" FromRole="employee" ToRole="userroles" />
+    <NavigationProperty Name="zipcode" Relationship="Self.FK__employee__zip__286302EC" FromRole="employee" ToRole="zipcodes" />
+    <NavigationProperty Name="projects" Relationship="Self.FK__project__employe__2C3393D0" FromRole="employee" ToRole="project" />
+    <NavigationProperty Name="project_costs" Relationship="Self.FK__project_c__emplo__38996AB5" FromRole="employee" ToRole="project_costs" />
+    <NavigationProperty Name="project_employees" Relationship="Self.FK__project_e__emplo__3C69FB99" FromRole="employee" ToRole="project_employees" />
+    <NavigationProperty Name="project_hours" Relationship="Self.FK__project_h__emplo__30F848ED" FromRole="employee" ToRole="project_hours" />
+    <NavigationProperty Name="project_messages" Relationship="Self.FK__project_m__emplo__34C8D9D1" FromRole="employee" ToRole="project_messages" />
+  </EntityType>
+  <EntityType Name="project">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="employee_eid" Type="Int32" />
+    <Property Name="pdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pdate" Type="DateTime" Precision="3" />
+    <Property Name="pdeadline" Type="DateTime" Precision="3" />
+    <Property Name="projectisfinished" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__project__employe__2C3393D0" FromRole="project" ToRole="employee" />
+    <NavigationProperty Name="project_costs" Relationship="Self.FK__project_c__proje__37A5467C" FromRole="project" ToRole="project_costs" />
+    <NavigationProperty Name="project_employees" Relationship="Self.FK__project_e__proje__3B75D760" FromRole="project" ToRole="project_employees" />
+    <NavigationProperty Name="project_hours" Relationship="Self.FK__project_h__proje__300424B4" FromRole="project" ToRole="project_hours" />
+    <NavigationProperty Name="project_messages" Relationship="Self.FK__project_m__proje__33D4B598" FromRole="project" ToRole="project_messages" />
+  </EntityType>
+  <EntityType Name="project_costs">
+    <Key>
+      <PropertyRef Name="pcid" />
+    </Key>
+    <Property Name="project_pid" Type="Int32" />
+    <Property Name="employee_eid" Type="Int32" />
+    <Property Name="costdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="costdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="costtimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cost" Type="Int32" Nullable="false" />
+    <Property Name="pcid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__project_c__emplo__38996AB5" FromRole="project_costs" ToRole="employee" />
+    <NavigationProperty Name="project" Relationship="Self.FK__project_c__proje__37A5467C" FromRole="project_costs" ToRole="project" />
+  </EntityType>
+  <EntityType Name="project_employees">
+    <Key>
+      <PropertyRef Name="peid" />
+    </Key>
+    <Property Name="peid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_pid" Type="Int32" />
+    <Property Name="employee_eid" Type="Int32" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__project_e__emplo__3C69FB99" FromRole="project_employees" ToRole="employee" />
+    <NavigationProperty Name="project" Relationship="Self.FK__project_e__proje__3B75D760" FromRole="project_employees" ToRole="project" />
+  </EntityType>
+  <EntityType Name="project_hours">
+    <Key>
+      <PropertyRef Name="phid" />
+    </Key>
+    <Property Name="project_pid" Type="Int32" />
+    <Property Name="employee_eid" Type="Int32" />
+    <Property Name="hourdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hourdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="hourtimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="workhour" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="phid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__project_h__emplo__30F848ED" FromRole="project_hours" ToRole="employee" />
+    <NavigationProperty Name="project" Relationship="Self.FK__project_h__proje__300424B4" FromRole="project_hours" ToRole="project" />
+  </EntityType>
+  <EntityType Name="project_messages">
+    <Key>
+      <PropertyRef Name="pmid" />
+    </Key>
+    <Property Name="project_pid" Type="Int32" />
+    <Property Name="employee_eid" Type="Int32" />
+    <Property Name="projectmessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="messagetimestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="filename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="file" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="pmid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="employee" Relationship="Self.FK__project_m__emplo__34C8D9D1" FromRole="project_messages" ToRole="employee" />
+    <NavigationProperty Name="project" Relationship="Self.FK__project_m__proje__33D4B598" FromRole="project_messages" ToRole="project" />
+  </EntityType>
+  <EntityType Name="userrole">
+    <Key>
+      <PropertyRef Name="urid" />
+    </Key>
+    <Property Name="urid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userrole1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="employees" Relationship="Self.FK__employee__userro__29572725" FromRole="userroles" ToRole="employee" />
+  </EntityType>
+  <EntityType Name="zipcode">
+    <Key>
+      <PropertyRef Name="zip" />
+    </Key>
+    <Property Name="zip" Type="Int32" Nullable="false" />
+    <Property Name="place" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="employees" Relationship="Self.FK__employee__zip__286302EC" FromRole="zipcodes" ToRole="employee" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__employee__userro__29572725">
+    <End Role="userroles" Type="Self.userrole" Multiplicity="0..1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userroles">
+        <PropertyRef Name="urid" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="userrole_urid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__employee__zip__286302EC">
+    <End Role="zipcodes" Type="Self.zipcode" Multiplicity="0..1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zipcodes">
+        <PropertyRef Name="zip" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="zip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project__employe__2C3393D0">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="project" Type="Self.project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="project">
+        <PropertyRef Name="employee_eid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_c__emplo__38996AB5">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="project_costs" Type="Self.project_costs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="project_costs">
+        <PropertyRef Name="employee_eid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_e__emplo__3C69FB99">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="project_employees" Type="Self.project_employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="project_employees">
+        <PropertyRef Name="employee_eid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_h__emplo__30F848ED">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="project_hours" Type="Self.project_hours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="project_hours">
+        <PropertyRef Name="employee_eid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_m__emplo__34C8D9D1">
+    <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+    <End Role="project_messages" Type="Self.project_messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee">
+        <PropertyRef Name="eid" />
+      </Principal>
+      <Dependent Role="project_messages">
+        <PropertyRef Name="employee_eid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_c__proje__37A5467C">
+    <End Role="project" Type="Self.project" Multiplicity="0..1" />
+    <End Role="project_costs" Type="Self.project_costs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="pid" />
+      </Principal>
+      <Dependent Role="project_costs">
+        <PropertyRef Name="project_pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_e__proje__3B75D760">
+    <End Role="project" Type="Self.project" Multiplicity="0..1" />
+    <End Role="project_employees" Type="Self.project_employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="pid" />
+      </Principal>
+      <Dependent Role="project_employees">
+        <PropertyRef Name="project_pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_h__proje__300424B4">
+    <End Role="project" Type="Self.project" Multiplicity="0..1" />
+    <End Role="project_hours" Type="Self.project_hours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="pid" />
+      </Principal>
+      <Dependent Role="project_hours">
+        <PropertyRef Name="project_pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__project_m__proje__33D4B598">
+    <End Role="project" Type="Self.project" Multiplicity="0..1" />
+    <End Role="project_messages" Type="Self.project_messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="pid" />
+      </Principal>
+      <Dependent Role="project_messages">
+        <PropertyRef Name="project_pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="projects" EntityType="Self.project" />
+    <EntitySet Name="project_costs" EntityType="Self.project_costs" />
+    <EntitySet Name="project_employees" EntityType="Self.project_employees" />
+    <EntitySet Name="project_hours" EntityType="Self.project_hours" />
+    <EntitySet Name="project_messages" EntityType="Self.project_messages" />
+    <EntitySet Name="userroles" EntityType="Self.userrole" />
+    <EntitySet Name="zipcodes" EntityType="Self.zipcode" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__employee__userro__29572725" Association="Self.FK__employee__userro__29572725">
+      <End Role="userroles" EntitySet="userroles" />
+      <End Role="employee" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__employee__zip__286302EC" Association="Self.FK__employee__zip__286302EC">
+      <End Role="zipcodes" EntitySet="zipcodes" />
+      <End Role="employee" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project__employe__2C3393D0" Association="Self.FK__project__employe__2C3393D0">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="project" EntitySet="projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_c__emplo__38996AB5" Association="Self.FK__project_c__emplo__38996AB5">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="project_costs" EntitySet="project_costs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_e__emplo__3C69FB99" Association="Self.FK__project_e__emplo__3C69FB99">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="project_employees" EntitySet="project_employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_h__emplo__30F848ED" Association="Self.FK__project_h__emplo__30F848ED">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="project_hours" EntitySet="project_hours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_m__emplo__34C8D9D1" Association="Self.FK__project_m__emplo__34C8D9D1">
+      <End Role="employee" EntitySet="employees" />
+      <End Role="project_messages" EntitySet="project_messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_c__proje__37A5467C" Association="Self.FK__project_c__proje__37A5467C">
+      <End Role="project" EntitySet="projects" />
+      <End Role="project_costs" EntitySet="project_costs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_e__proje__3B75D760" Association="Self.FK__project_e__proje__3B75D760">
+      <End Role="project" EntitySet="projects" />
+      <End Role="project_employees" EntitySet="project_employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_h__proje__300424B4" Association="Self.FK__project_h__proje__300424B4">
+      <End Role="project" EntitySet="projects" />
+      <End Role="project_hours" EntitySet="project_hours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__project_m__proje__33D4B598" Association="Self.FK__project_m__proje__33D4B598">
+      <End Role="project" EntitySet="projects" />
+      <End Role="project_messages" EntitySet="project_messages" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

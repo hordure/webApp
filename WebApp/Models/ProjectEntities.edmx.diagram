@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f823c5a125747eaa1263cbdd471d60b" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="14.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="14.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="12" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.employee" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project_costs" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project_employees" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project_hours" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.project_messages" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.userrole" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.zipcode" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__employee__userro__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__employee__zip__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project__employe__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_c__emplo__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_e__emplo__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_h__emplo__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_m__emplo__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_c__proje__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_e__proje__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_h__proje__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__project_m__proje__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__AspNetUse__emplo__47DBAE45" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

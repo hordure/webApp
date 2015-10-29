@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WebApp1019" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=pdoems0nb5.database.windows.net,1433;Initial Catalog=projects;User ID=hedev;Password=Skakarinn1" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ProjectEntities-Web.config Connection String" description="" value="metadata=res://*/Models.ProjectEntities.csdl|res://*/Models.ProjectEntities.ssdl|res://*/Models.ProjectEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=pdoems0nb5.database.windows.net,1433;Initial Catalog=projects;User ID=hedev;Password=Skakarinn1&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\admin\\VS\ Projects\\WebApp\\WebApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProjectEntities']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<div >
+
+    <div>
+        <div style="float:left">
+            <div><h4>Skilaboð verkefnis</h4></div>
+        </div>
+
+    </div>
+    <div class="nav" style=" vertical-align:baseline" align="right">
+        <a style="font-size:2em" class="glyphicon glyphicon-pencil" href="#/editProject_message/{{pmessage.pmid}}"></a>
+        <a style="font-size:2em" class="glyphicon glyphicon-remove" ng-click="delclick(pmessage.pmid)"></a>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Skilaboð</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{pmessage.projectmessage}}</label>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <label class="col-md-2 control-label">Stofnað</label>
+        <div class="col-md-10">
+            <label style="font-size:larger">{{pmessage.messagetimestamp | date:"dd.MM.yyyy ' kl.' HH:mm"}}</label>
+        </div>
+    </div>
+</div>

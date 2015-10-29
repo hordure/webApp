@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+<div ng-controller="allProjectsController" ng-show="user.isAuthenticated">
+    <div id="ListForm">
+        <div class="navbar-collapse collapse">
+
+
+            <hr>
+
+            <input type="text" ng-model="search" class="search-query" placeholder="Leita" />
+            <p></p>
+            <button id="createlink" title="Bæta við" ng-click="sav()">Bæta við</button>
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th >
+                            Nr.
+                            <a href="" ng-click="predicate = 'pid'; reverse=false" class="glyphicon glyphicon-arrow-down"></a>
+                            <a href="" ng-click="predicate = '-pid'; reverse=false" class="glyphicon glyphicon-arrow-up"></a>
+                        </th>
+                        <th >
+                            <a href="" ng-click="predicate = 'pdescription'; reverse=!reverse">Heiti</a>
+                        </th>
+                        <th >
+                            <a href="" ng-click="predicate = 'pdate'; reverse=!reverse">Stofnað</a>
+                        </th>
+                        <th >
+                            <a href="" ng-click="predicate = 'pdeadline'; reverse=!reverse">Lok fyrir dags.</a>
+                        </th>
+                        <th >
+                            <a href="" ng-click="predicate = 'projectisfinished'; reverse=!reverse">Lokið/ólokið</a>
+                        </th>
+                        <th>Breyta / Eyða</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pro in projects| filter: search | orderBy:predicate:reverse">
+                        <td >{{pro.pid}}</td>
+                        <td >{{pro.projectname}}</td>
+                        <td >{{pro.pdate| date:"dd.MM.yyyy 'kl.' h:mm"}}</td>
+                        <td >{{pro.pdeadline| date:" dd.MM.yyyy "}}</td>
+                        <td >{{pro.projectisfinished}}</td>
+
+                        <td>
+                            <a class="glyphicon glyphicon-align-left" ng-href="/#/project/{{pro.pid}}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+</div>

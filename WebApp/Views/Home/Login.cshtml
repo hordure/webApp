@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    <h2 ng-hide="user.isAuthenticated">Log in</h2>
+    <div ng-hide="user.isAuthenticated" >
+        <form class="form-horizontal">
+            <div class="row" ng-repeat="error in errors">
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="username">
+                    Email address:
+                </label>
+                <div class="col-md-6">
+                    <input id="username" type="email" placeholder="Email" ng-model="username" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="password">
+                    Password:
+                </label>
+                <div class="col-md-6">
+                    <input id="password" type="password" placeholder="Password" ng-model="password" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="login-form-remember-me-checkbox" ng-model="persist" />Remember me
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" id="btn-login" class="btn btn-success" value="Log in" ng-click="login()" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div ng-show="user.isAuthenticated" >
+        <form class="form-group">
+            <input type="button" class="btn btn-primary" value="Logout" ng-click="logout()" />
+        </form>
+    </div>
+</div>

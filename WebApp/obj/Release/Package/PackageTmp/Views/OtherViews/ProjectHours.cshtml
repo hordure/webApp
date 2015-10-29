@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+<div >
+
+    <table class="table ">
+        <thead>
+            <tr>
+
+                <th>
+                    <a href="" ng-click="predicate = 'workhour'; reverse=!reverse">Tímar</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'hourdescription'; reverse=!reverse">Lýsing</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'hourdate'; reverse=!reverse">Dags. tímafærslu</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'hourtimestamp'; reverse=!reverse">Hvenær skráð</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'employee'; reverse=!reverse">Starfsmaður</a>
+                </th>
+                <th>
+                    <a href="" ng-click="predicate = 'project'; reverse=!reverse">Verkefni</a>
+                </th>
+                <th>Nánar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ph in project_hours| filter: search | orderBy:predicate:reverse">
+                <td>{{ph.workhour}}</td>
+                <td>{{ph.hourdescription}}</td>
+                <td>{{ph.hourdate| date:"dd.MM.yyyy"}}</td>
+                <td>{{ph.hourtimestamp| date:"dd.MM.yyyy 'kl.' h:mm"}}</td>
+                <td>{{ph.employeeName}}</td>
+                <td>{{ph.projectTitle}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-align-left" href="#/project_costDetails/{{pc.pcid}}"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <label>Samtals&nbsp;&nbsp;</label>
+    <label>{{sumOfHours[0].TotalHours}}&nbsp;tímar</label>
+</div>

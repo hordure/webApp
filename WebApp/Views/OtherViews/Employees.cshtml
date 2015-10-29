@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div>
+    <div id="ListForm">
+        <div class="navbar-collapse collapse">
+            
+
+            <hr>
+
+            <input type="text" ng-model="search" class="search-query" placeholder="Leita" />
+            <p></p>
+            <button id="createlink" title="Bæta við" ng-click="sav()">Bæta við</button>
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>
+                            Nafn
+                            <a href="" ng-click="predicate = 'name'; reverse=false" class="glyphicon glyphicon-arrow-down"></a>
+                            <a href="" ng-click="predicate = '-name'; reverse=false" class="glyphicon glyphicon-arrow-up"></a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'profession'; reverse=!reverse">Starfsheiti</a>
+                        </th>
+                        <th>
+                            <a href="" ng-click="predicate = 'email'; reverse=!reverse">Email</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'homeaddress'; reverse=!reverse">Heimilisfang</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'zip'; reverse=!reverse">Pnr.</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'phone'; reverse=!reverse">Sími</a>
+                        </th>
+                       
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'userrole_urid'; reverse=!reverse">Role</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'username'; reverse=!reverse">Notandanafn</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'password'; reverse=!reverse">Lykilorð</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'kt'; reverse=!reverse">Kt.</a>
+                        </th>
+                        <th ng-hide="true">
+                            <a href="" ng-click="predicate = 'employeetimestamp'; reverse=!reverse">Timestamp</a>
+                        </th>
+                        <th>Nánar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="emp in employees| filter: search | orderBy:predicate:reverse">
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.profession}}</td>
+                        <td>{{emp.email}}</td>
+                        <td ng-hide="true">{{emp.homeaddress}}</td>
+                        <td ng-hide="true">{{emp.zip}}</td>
+                        <td ng-hide="true">{{emp.phone}}</td>
+                        <td ng-hide="true">{{emp.userrole_urid}}</td>
+                        <td ng-hide="true">{{emp.username}}</td>
+                        <td ng-hide="true">{{emp.password}}</td>
+                        <td ng-hide="true">{{emp.kt}}</td>
+                        <td ng-hide="true">{{emp.employeetimestamp}}</td>
+                        <td>
+                            <a class="glyphicon glyphicon-align-left" ng-href="/#/employees/{{emp.eid}}"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+</div>
